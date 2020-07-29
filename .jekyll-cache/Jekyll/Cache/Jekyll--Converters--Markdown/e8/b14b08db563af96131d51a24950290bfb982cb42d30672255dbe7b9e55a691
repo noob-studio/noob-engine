@@ -1,0 +1,48 @@
+I"�<h2 id="output">Output</h2>
+<p>เป็นตัวช่วยสำหรับคือข้อมูลให้ Client โดยมี method ต่างๆ ดังนี้</p>
+
+<h3 id="constructor">constructor</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">useEngine</code> ถ้าเป็น true จะ render ข้อมูลพร้อม binding data ด้วย</li>
+</ul>
+
+<h3 id="sendresponse">sendResponse()</h3>
+<p>เป็นฟังชันพื้นฐานสำหรับส่ง response ไปให้ client</p>
+
+<h5 id="parameter">parameter</h5>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">res</code> <strong><em>require</em></strong> express response object</li>
+  <li><code class="language-plaintext highlighter-rouge">code</code> http response code เช่น 200 = success, 400 = bad request, 500 = internal error <strong><em>default เป็น 200</em></strong></li>
+  <li><code class="language-plaintext highlighter-rouge">data</code> ข้อมูลที่ต้องการคืนกลับไปให้ client</li>
+  <li><code class="language-plaintext highlighter-rouge">headers</code> headers สำหรับ response หากต้องการ set headers ด้วย</li>
+</ul>
+
+<h3 id="success">success()</h3>
+<p>เป็นฟังชันสำหรับส่ง response แบบ success โดยเฉพาะ <strong><em>response code จะเป็น 200 เสมอ</em></strong></p>
+
+<h5 id="parameter-1">parameter</h5>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">res</code> <strong><em>require</em></strong> express response object</li>
+  <li><code class="language-plaintext highlighter-rouge">data</code> ข้อมูลที่ต้องการคืนกลับไปให้ client</li>
+</ul>
+
+<h3 id="error">error()</h3>
+<p>เป็นฟังชันสำหรับส่ง response แบบ error โดยเฉพาะ</p>
+
+<h5 id="parameter-2">parameter</h5>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">res</code> <strong><em>require</em></strong> express response object</li>
+  <li><code class="language-plaintext highlighter-rouge">error</code> error ที่ต้องการคืนกลับไปให้ client</li>
+  <li><code class="language-plaintext highlighter-rouge">code</code> response code ที่ต้องการส่งไปให้ client <strong><em>default เป็น 200</em></strong></li>
+</ul>
+
+<h3 id="html">html()</h3>
+<p>เป็นฟังชันสำหรับส่ง response แบบ html โดยเฉพาะโดยสามารถทำงานร่วมกับ view engine ได้</p>
+
+<h5 id="parameter-3">parameter</h5>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">res</code> <strong><em>require</em></strong> express response object</li>
+  <li><code class="language-plaintext highlighter-rouge">filePath</code> filePath ที่อยู่ของไฟล์ view</li>
+  <li><code class="language-plaintext highlighter-rouge">data</code> ข้อมูลที่ต้องการ binding กับ view engine</li>
+</ul>
+:ET

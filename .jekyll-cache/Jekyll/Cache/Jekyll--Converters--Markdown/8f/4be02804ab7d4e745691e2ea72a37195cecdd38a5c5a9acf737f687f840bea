@@ -1,0 +1,60 @@
+I"A<h1 id="noob-engine">Noob Engine</h1>
+<p>framework ที่ทำให้คุณ <code class="language-plaintext highlighter-rouge">Code น้อยลง</code>เพื่อที่จะมีเวลา <code class="language-plaintext highlighter-rouge">คิดมากขึ้น</code></p>
+
+<p><a href="#install" class="btn btn-primary fs-5 mb-4 mb-md-0 mr-2">ติดตั้ง</a> <a href="https://github.com/noob-studio/noob-engine" class="btn fs-5 mb-4 mb-md-0">View it on GitHub</a></p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Develop Fast</code>
+เพียงแค่ 5 พอคุณก็มี API พร้อมใช้งานสำหรับฐานข้อมูลของคุณ หรือเริ่มสร้างใหม่ตั้งแต่ต้นก็ยังได้</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Simple</code>
+ใช้งานง่ายเพียงมีพื้นฐาน Javascript โปรแกรมนิดหน่อยก็สามารถเร่ิมใช้งานได้</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Customizable</code>
+สร้างขึ้นบน express และ sequelize ทำให้สามารถใช้ร่วมกับ middleware ต่างๆ ได้</p>
+  </li>
+</ul>
+
+<h2 id="install">Install</h2>
+
+<p>เพื่อใช้งาน noob engine คุณต้องติดตั้ง node.js ในเครื่องก่อน</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">mkdir</span> <span class="nx">awesome</span><span class="o">-</span><span class="nx">api</span>
+    <span class="nx">cd</span> <span class="nx">awesome</span><span class="o">-</span><span class="nx">api</span>
+    <span class="nx">npm</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">save</span> <span class="nx">noob</span><span class="o">-</span><span class="nx">engine</span>
+</code></pre></div></div>
+
+<h2 id="usage">Usage</h2>
+
+<p>สร้างไฟล์ <code class="language-plaintext highlighter-rouge">index.js</code> ขึ้นมาแล้วเพิ่ม code ข้างล่างนี้ลงไป</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">const</span> <span class="nx">Noob</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">noob-engine</span><span class="dl">'</span><span class="p">)</span>
+    <span class="kd">const</span> <span class="nx">Engine</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Noob</span><span class="p">.</span><span class="nx">engine</span><span class="p">()</span>
+
+    <span class="kd">class</span> <span class="nx">Controller</span> <span class="kd">extends</span> <span class="nx">Noob</span><span class="p">.</span><span class="nx">controller</span> <span class="p">{</span>
+        <span class="kd">get</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">output</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Hello Noob</span><span class="dl">'</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">Engine</span><span class="p">.</span><span class="kd">set</span><span class="p">({</span>
+        <span class="na">route</span><span class="p">:</span> <span class="p">[{</span>
+          <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">controller</span><span class="p">:</span> <span class="nx">Controller</span>
+        <span class="p">}]</span>
+    <span class="p">})</span>
+
+    <span class="nx">Engine</span><span class="p">.</span><span class="nx">start</span><span class="p">()</span>
+</code></pre></div></div>
+<p>จากนั้นพิมพ์คำสั่ง</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">node</span> <span class="nx">index</span><span class="p">.</span><span class="nx">js</span>
+</code></pre></div></div>
+
+<p>noob engine จะเพิ่มทำงานอัตโนมัติที่ port 3000 เมื่อเปิด browser ไปที่ <code class="language-plaintext highlighter-rouge">http://localhost:3000</code> ก็จะพบกับคำว่า</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Hello</span> <span class="nx">Noob</span>
+</code></pre></div></div>
+:ET

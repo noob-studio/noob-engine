@@ -1,0 +1,130 @@
+<h2 id="default-http-request-method">Default Http Request Method</h2>
+
+<p>เป็น default ฟังชันสำหรับจัดการ http request method คุณสามารถ overwrite ได้โดยประกาศชื่อฟังชันนี้อีกครั้งใน controller ของคุณ</p>
+
+<h3 id="get">get()</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">description</code> ใช้สำหรับจัดการ request method get (ใช้สำหรับอ่านข้อมูล)</li>
+  <li><code class="language-plaintext highlighter-rouge">parameter</code>
+    <ul>
+      <li>request: เก็บ request อ่านเพิ่มเติมได้ที่ request</li>
+      <li>response: เก็บ response ที่จะส่งออกไปอ่านเพิ่มเติมได้ที่ response</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="request-data">Request Data</h5>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">content-type</code>  application/json</li>
+  <li><code class="language-plaintext highlighter-rouge">query string</code>
+    <ul>
+      <li>ไม่ใส่เพื่อ get all</li>
+      <li>ใส่ primary key เพื่อ get one <code class="language-plaintext highlighter-rouge">?id=1</code></li>
+      <li>ใส่ page เพื่อ get by page <code class="language-plaintext highlighter-rouge">?page=1</code></li>
+      <li>ใส่ชื่อ column เพื่อ where ตามชื่อคอลัมม์ในตาราง <code class="language-plaintext highlighter-rouge">?fname=hello&amp;lname=world</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="response-data">Response Data</h5>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">[{</span>
+  <span class="na">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="na">fname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">lname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">lady</span><span class="dl">"</span>
+<span class="p">}{</span>
+  <span class="na">id</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="na">fname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">lname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">world</span><span class="dl">"</span>
+<span class="p">}]</span> <span class="c1">// get all</span>
+
+<span class="c1">// request ?id=1</span>
+<span class="p">{</span>
+  <span class="nl">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nx">fname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">,</span>
+  <span class="nx">lname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">lady</span><span class="dl">"</span>
+<span class="p">}</span> <span class="c1">// get by id</span>
+
+<span class="c1">// request ?fname=hello&amp;lname=world</span>
+<span class="p">[{</span>
+  <span class="na">id</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="na">fname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">lname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">world</span><span class="dl">"</span>
+<span class="p">}]</span> <span class="c1">// get where</span>
+
+<span class="c1">// request ?page=1</span>
+<span class="p">{</span>   
+    <span class="nl">docs</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="na">fname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">lname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">world</span><span class="dl">"</span>
+    <span class="p">}],</span>
+    <span class="nx">page</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">//หน้าปัจจุบัน</span>
+    <span class="nx">total</span><span class="p">:</span> <span class="mi">100</span> <span class="c1">// จำนวนข้อมูลทั้งหมด</span>
+<span class="p">}</span> <span class="c1">// get page</span>
+
+</code></pre></div></div>
+
+<h3 id="post">post()</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">description</code> ใช้สำหรับจัดการ request method post (ใช้สำหรับเพิ่มข้อมูลลงฐานข้อมูล)</li>
+  <li><code class="language-plaintext highlighter-rouge">parameter</code>
+    <ul>
+      <li>request: เก็บ request อ่านเพิ่มเติมได้ที่ request</li>
+      <li>response: เก็บ response ที่จะส่งออกไปอ่านเพิ่มเติมได้ที่ response</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="request-data-1">Request Data</h5>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">content-type</code>  application/json</li>
+  <li><code class="language-plaintext highlighter-rouge">body</code> json object ตาม model โดยจะมีการ validate ทุกครั้งก่อนทำ insert ข้อมูล</li>
+</ul>
+
+<h5 id="response-data-1">Response Data</h5>
+<p>ข้อมูลที่ทำการ insert ลงไป</p>
+
+<h3 id="patch">patch()</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">description</code> ใช้สำหรับจัดการ request method patch (ใช้สำหรับแก้ไขข้อมูลข้อมูล)</li>
+  <li><code class="language-plaintext highlighter-rouge">parameter</code>
+    <ul>
+      <li>request: เก็บ request อ่านเพิ่มเติมได้ที่ request</li>
+      <li>response: เก็บ response ที่จะส่งออกไปอ่านเพิ่มเติมได้ที่ response</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="request-data-2">Request Data</h5>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">content-type</code>  application/json</li>
+  <li><code class="language-plaintext highlighter-rouge">query string</code> เงื่อนไขที่ต้องการให้ update <code class="language-plaintext highlighter-rouge">?id=1</code></li>
+  <li><code class="language-plaintext highlighter-rouge">body</code> json object ตาม model ที่ถูกส่งมา <code class="language-plaintext highlighter-rouge">จะถูกแก้ไข</code></li>
+</ul>
+
+<h5 id="response-data-2">Response Data</h5>
+<p>ข้อมูลที่ทำการอัพเดต หรือจำนวนถูกที่ถูกอัพเดต</p>
+
+<h3 id="delete">delete()</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">description</code> ใช้สำหรับจัดการ request method delete (ใช้ลบข้อมูล)</li>
+  <li><code class="language-plaintext highlighter-rouge">parameter</code>
+    <ul>
+      <li>request: เก็บ request อ่านเพิ่มเติมได้ที่ request</li>
+      <li>response: เก็บ response ที่จะส่งออกไปอ่านเพิ่มเติมได้ที่ response</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="request-data-3">Request Data</h5>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">content-type</code>  application/json</li>
+  <li><code class="language-plaintext highlighter-rouge">query string</code>  เงื่อนไขที่ต้องการให้ลบ</li>
+</ul>
+
+<h5 id="response-data-3">Response Data</h5>
+<p>จำนวนแถวที่ถูกลบ</p>

@@ -1,0 +1,13 @@
+I"�<h2 id="controller">Controller</h2>
+
+<p>controller คือตัวบริหารจัดการ request ที่เข้ามาอาจจะเรียกว่าเป็นส่วนของ logic ก็ได้โดย noob engine มี default controller สำหรับทุก route ให้โดยอัตโนมัติแล้ว แต่คุณสามารถ extends เพื่อเพิ่มฟังชันใหม่ๆได้ โดยใน controller มี default method กับ property มาให้ดังนี้</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="kd">class</span> <span class="nx">Controller</span> <span class="kd">extends</span> <span class="nx">Noob</span><span class="p">.</span><span class="nx">controller</span> <span class="p">{</span>
+        <span class="k">async</span> <span class="kd">get</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">output</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Hello Noob</span><span class="dl">'</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">Controller</span>
+</code></pre></div></div>
+:ET

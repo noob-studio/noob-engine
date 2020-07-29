@@ -1,0 +1,27 @@
+<h2 id="method">Method</h2>
+
+<p>เป็น method สำหรับช่วยให้การใช้งาน controller ง่ายขึ้น</p>
+
+<h3 id="getprimary">getPrimary()</h3>
+
+<p>ใช้สำหรับดึง primary key ของ model คืนข้อมูลเป็น string</p>
+
+<h3 id="loadmodel">loadModel()</h3>
+
+<p>ใช้สำหรับเรียก model จากไฟล์เข้ามาใช้งานใน controller</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">parameter</code> ชื่อโมเดลที่อยู่ในโฟลเดอร์ model</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">let</span> <span class="nx">MyModel</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">loadModel</span><span class="p">(</span><span class="dl">'</span><span class="s1">blog</span><span class="dl">'</span><span class="p">)</span> 
+    <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">MyModel</span><span class="p">.</span><span class="nx">findAll</span><span class="p">()</span>
+    <span class="p">...</span>
+</code></pre></div></div>
+
+<h3 id="valiate">valiate()</h3>
+
+<p>ใช้สำหรับ validate model ว่าถูกต้องตาม type ที่เราตั้งไว้หรือไม่</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span> <span class="c1">// validate โดยใช้ default model ที่มากับ controller</span>
+    <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span> <span class="nx">MyModel</span><span class="p">)</span> <span class="c1">// validate โดยกำหนด model ที่ต้องการเอง</span>
+</code></pre></div></div>

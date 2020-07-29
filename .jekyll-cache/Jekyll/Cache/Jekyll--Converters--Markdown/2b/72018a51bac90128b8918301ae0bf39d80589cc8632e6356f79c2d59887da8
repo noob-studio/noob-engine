@@ -1,0 +1,45 @@
+I"�<h2 id="method">Method</h2>
+
+<h3 id="set">set()</h3>
+
+<p>ใช้สำหรับตั้งค่าต่างๆ ใน noob engine วิธีการเรียกใช้งาน</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">Engine</span><span class="p">.</span><span class="kd">set</span><span class="p">({...})</span>
+</code></pre></div></div>
+<p>สามารถดู config เพิ่มเติมได้ในส่วนของ config</p>
+
+<h3 id="setpublic">setPublic()</h3>
+
+<p>ใช้สำหรับ set public path ในกรณีที่ต้องการส่ง output เป็น file static</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">Engine</span><span class="p">.</span><span class="nx">setPublic</span><span class="p">({</span> 
+        <span class="na">dir</span><span class="p">:</span> <span class="dl">'</span><span class="s1">example/public</span><span class="dl">'</span><span class="p">,</span>  <span class="c1">// path ที่ต้องการให้เป็น public</span>
+        <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/assets</span><span class="dl">'</span> <span class="c1">// path ที่ต้องการให้มองเห็นไม่ต้องใส่จะ set default ไปที่ dir path</span>
+    <span class="p">})</span>
+</code></pre></div></div>
+<h3 id="use">use()</h3>
+
+<p>ใช้สำหรับเรียกใช้งาน express middleware ต่างๆ เช่น</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">const</span> <span class="nx">compression</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">compression</span><span class="dl">'</span><span class="p">)</span>
+    <span class="nx">Engine</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">compression</span><span class="p">())</span>
+</code></pre></div></div>
+
+<h3 id="start">start()</h3>
+
+<p>ใช้สำหรับเริ่ม start service ของเรา</p>
+
+<h5 id="parameter">parameter</h5>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">callback</code> ส่ง callback ฟังชันเข้าไป ฟังชันนี้จะถูกเรียกใช้งานหลังจาก start service แล้วโดยข้างในฟังชันนี้จะคือ property และ method ทุกอย่างที่ noob engine สร้างขึ้นในขณะที่ run time มาให้ผ่าน parameter</li>
+  <li><code class="language-plaintext highlighter-rouge">app</code> express application ใช้สำหรับ overwrite default express ของ noob.engine
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">Engine</span><span class="p">.</span><span class="nx">start</span><span class="p">()</span> <span class="c1">// วิธีปกติ</span>
+    
+  <span class="nx">Engine</span><span class="p">.</span><span class="nx">start</span><span class="p">((</span><span class="nx">app</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`start noob engine at port </span><span class="p">${</span><span class="nx">app</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">port</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+  <span class="p">})</span> <span class="c1">// call with callback function</span>
+
+  <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">()</span>
+  <span class="nx">Engine</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">app</span><span class="p">)</span> <span class="c1">// overwrite default express</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+:ET

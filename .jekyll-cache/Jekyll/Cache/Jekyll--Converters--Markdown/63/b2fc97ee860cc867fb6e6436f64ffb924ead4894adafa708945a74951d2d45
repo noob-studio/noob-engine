@@ -1,0 +1,98 @@
+I"?<h2 id="model">Model</h2>
+
+<p>Model คือ ตัวแทนตารางในฐานข้อมูลสร้างขึ้นบนพื้นฐานของ Sequelize โดยมีสองแบบคือ</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Sequelize</code> เป็น model ที่ระบบทำการ generate ขึ้นมาเหมาะสำหรับกรณีที่มีฐานข้อมูลอยู่แล้ว สำหรับการให้งาน model แบบ sequelize สามารถอ่านเพิ่มเติมได้ ที่นี่</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">function</span> <span class="p">(</span><span class="nx">sequelize</span><span class="p">,</span> <span class="nx">DataTypes</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">sequelize</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="dl">'</span><span class="s1">blog</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+        <span class="na">blog_id</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">type</span><span class="p">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">INTEGER</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+            <span class="na">allowNull</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="na">primaryKey</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="na">autoIncrement</span><span class="p">:</span> <span class="kc">true</span>
+        <span class="p">},</span>
+        <span class="na">blog_name</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">type</span><span class="p">:</span> <span class="nx">Sequelize</span><span class="p">.</span><span class="nx">STRING</span><span class="p">,</span>
+          <span class="na">allowNull</span><span class="p">:</span> <span class="kc">false</span>
+        <span class="p">}</span>
+      <span class="p">},</span> <span class="p">{</span>
+        <span class="na">tableName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">blog</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">timestamps</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="na">createdAt</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="na">updatedAt</span><span class="p">:</span> <span class="kc">false</span>
+      <span class="p">})</span>
+    <span class="p">}</span> <span class="c1">// ประกาศ model แบบ sequelize</span>
+</code></pre></div></div>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Noob.model</code> เป็นตัวช่วยทำให้สามารถใช้งาน Sequelize ได้ง่ายขึ้นเหมาะสำหรับใช้งานในกรณีที่ยังไม่ได้สร้างตาราง
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">blog</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Noob</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="dl">'</span><span class="s1">blog</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">blog_id</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">type</span><span class="p">:</span> <span class="nx">DataTypes</span><span class="p">.</span><span class="nx">INTEGER</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+        <span class="na">allowNull</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="na">primaryKey</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">autoIncrement</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="na">name</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">type</span><span class="p">:</span> <span class="nx">Sequelize</span><span class="p">.</span><span class="nx">STRING</span><span class="p">,</span>
+      <span class="na">allowNull</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="na">autoGen</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">force</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="p">})</span> <span class="c1">// ประกาศ model แบบ noob</span>
+</code></pre></div>    </div>
+    <h3 id="parameter">Parameter</h3>
+  </li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>tname</td>
+      <td>string</td>
+      <td>require</td>
+      <td>ชื่อตาราง</td>
+    </tr>
+    <tr>
+      <td>obj</td>
+      <td>Sequelize Model</td>
+      <td>require</td>
+      <td>รายระเอียดของ column ในตาราง อ่านเพิ่มเติมได้ที่ Sequelize Model</td>
+    </tr>
+    <tr>
+      <td>otp</td>
+      <td>Sequelize Model Option</td>
+      <td> </td>
+      <td>option ต่างๆของ model นี้ extends มาจาก Sequelize Model โดยมี property เพิ่มเติมดังนี้</td>
+    </tr>
+    <tr>
+      <td>otp.autoGen</td>
+      <td>boolean</td>
+      <td> </td>
+      <td>ถ้าเป็น true จะสร้างตารางให้อัตโนมัติ default เป็น <code class="language-plaintext highlighter-rouge">false</code></td>
+    </tr>
+    <tr>
+      <td>otp.force</td>
+      <td>boolean</td>
+      <td> </td>
+      <td>ถ้าเป็น <strong>true</strong> เวลาสร้าง<strong>ตารางจะ drop ก่อนทุกครั้ง</strong> default เป็น <code class="language-plaintext highlighter-rouge">false</code></td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>string</td>
+      <td> </td>
+      <td>ชื่อของ model นี้ตั้งหรือไม่ตั้งก็ได้</td>
+    </tr>
+  </tbody>
+</table>
+:ET
