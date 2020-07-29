@@ -26,10 +26,8 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  noob-studio
 # Build settings
-theme: "just-the-docs"
 plugins:
   - jekyll-feed
-color_scheme: style
 remote_theme: pmarsceill/just-the-docs
 # Exclude from processing.
 # The following items will not be processed, by default.
