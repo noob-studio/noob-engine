@@ -1,9 +1,0 @@
-I"D<h2 id="engine">Engine</h2>
-
-<p>class engine คือหัวใจหลักของ noob engine โดยเป็นตัวผสมการทำงานทุกๆ ส่วนเข้าด้วยกันสร้างขึ้นบนพื้นฐานของ express โดยมี method และ property ให้เรียกใช้งานดังนี้</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="dl">'</span><span class="s1">use strict</span><span class="dl">'</span>
-    <span class="kd">const</span> <span class="nx">Noob</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">noob-engine</span><span class="dl">'</span><span class="p">)</span>
-    <span class="kd">const</span> <span class="nx">Engine</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Noob</span><span class="p">.</span><span class="nx">engine</span><span class="p">()</span>
-</code></pre></div></div>
-:ET
