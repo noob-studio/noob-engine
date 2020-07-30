@@ -12,7 +12,7 @@ const router = express.Router()
 class NoobEngine {
   constructor () {
     this.config = {
-      apipath: '',
+      baseUrl: '',
       auth: {
         secret: 'my secret code',
         path: '/login'
@@ -52,7 +52,7 @@ class NoobEngine {
         ctrl = new NoobController(model, this.output, this.db)
       }
 
-      router.route(`${this.config.apipath}${route.path}`)
+      router.route(`${this.config.baseUrl}${route.path}`)
         .get(ctrl.get.bind(ctrl))
         .post(ctrl.post.bind(ctrl))
         .patch(ctrl.patch.bind(ctrl))
@@ -60,7 +60,7 @@ class NoobEngine {
 
       if (route.children) {
         for (let x = 0; x < route.children.length; x++) {
-          router.route(`${this.config.apipath}${route.path}${route.children[x].path}`)[route.children[x].method.toLowerCase()](ctrl[route.children[x].function].bind(ctrl))
+          router.route(`${this.config.baseUrl}${route.path}${route.children[x].path}`)[route.children[x].method.toLowerCase()](ctrl[route.children[x].function].bind(ctrl))
         }
       }
       this.app.use('/', router)
@@ -141,7 +141,6 @@ class NoobEngine {
     this.use(bodyParser.json())
     await this.setting()
     if(cb){
-      console.log(JSON.stringify(this.config))
       this.app.listen(this.config.port, () => {
         cb(this)
       })
