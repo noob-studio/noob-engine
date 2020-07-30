@@ -15,7 +15,12 @@ nav_order: 2
 ### loadModel()
 
 ใช้สำหรับเรียก model จากไฟล์เข้ามาใช้งานใน controller
-* `parameter` ชื่อโมเดลที่อยู่ในโฟลเดอร์ model
+
+#### Parameter
+
+| Name        | Type                   | Attribute | Description                                                                  |
+|-------------|------------------------|-----------|------------------------------------------------------------------------------|
+| name       | string                 | require   | ชื่อโมเดลที่ต้องการเรียกใช้งาน |
 
 ```js
     let MyModel = this.loadModel('blog') 
@@ -31,3 +36,10 @@ nav_order: 2
     await this.validate(req.body) // validate โดยใช้ default model ที่มากับ controller
     await this.validate(req.body, MyModel) // validate โดยกำหนด model ที่ต้องการเอง
 ```
+
+#### Parameter
+
+| Name        | Type                   | Attribute | Description                                                                  |
+|-------------|------------------------|-----------|------------------------------------------------------------------------------|
+| request_body       | Object                 | require   | ข้อมูลที่ต้องการ validate |
+| model       | Sequelize Object Model             |    | โมเดลที่ต้องการเปรียบเทียบ |

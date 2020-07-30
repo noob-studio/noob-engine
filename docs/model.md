@@ -3,7 +3,7 @@ layout: default
 title: Model
 nav_order: 3
 ---
-## Model
+# Model
 
 Model คือ ตัวแทนตารางในฐานข้อมูลสร้างขึ้นบนพื้นฐานของ Sequelize โดยมีสองแบบคือ
 * `Sequelize` เป็น model ที่ระบบทำการ generate ขึ้นมาเหมาะสำหรับกรณีที่มีฐานข้อมูลอยู่แล้ว สำหรับการให้งาน model แบบ sequelize สามารถอ่านเพิ่มเติมได้ ที่นี่

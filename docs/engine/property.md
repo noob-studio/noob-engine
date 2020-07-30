@@ -6,7 +6,7 @@ nav_order: 2
 ---
 ## Property
 
-##### app
+### app
 
 express application ที่ใช้ในการ run server
 
@@ -15,11 +15,11 @@ express application ที่ใช้ในการ run server
     app.get("/", (req, res) => {...})
 ```
 
-##### config
+### config
 
 config ทั้งหมดที่ใช้ใน server ดูที่เพิ่มเติมได้ที่ config
 
-##### db
+### db
 
 class database ที่ใช้งานการจัดการกับฐานข้อมูลสร้างขึ้นบน Sequelize ดูเพิ่มเติมได้ที่ Database
 

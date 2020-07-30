@@ -15,7 +15,7 @@ nav_order: 1
     *   request: เก็บ request อ่านเพิ่มเติมได้ที่ request
     *   response: เก็บ response ที่จะส่งออกไปอ่านเพิ่มเติมได้ที่ response
 
-##### Request Data
+#### Request Data
 * `content-type`  application/json
 * `query string`   
     *   ไม่ใส่เพื่อ get all 
@@ -23,7 +23,7 @@ nav_order: 1
     *   ใส่ page เพื่อ get by page `?page=1`
     *   ใส่ชื่อ column เพื่อ where ตามชื่อคอลัมม์ในตาราง `?fname=hello&lname=world`
 
-##### Response Data
+#### Response Data
 ```js
 
 [{
@@ -69,11 +69,11 @@ nav_order: 1
     *   request: เก็บ request อ่านเพิ่มเติมได้ที่ request
     *   response: เก็บ response ที่จะส่งออกไปอ่านเพิ่มเติมได้ที่ response
 
-##### Request Data
+#### Request Data
 * `content-type`  application/json
 * `body` json object ตาม model โดยจะมีการ validate ทุกครั้งก่อนทำ insert ข้อมูล
 
-##### Response Data
+#### Response Data
 ข้อมูลที่ทำการ insert ลงไป
 
 ### patch()
@@ -82,13 +82,13 @@ nav_order: 1
     *   request: เก็บ request อ่านเพิ่มเติมได้ที่ request
     *   response: เก็บ response ที่จะส่งออกไปอ่านเพิ่มเติมได้ที่ response
 
-##### Request Data
+#### Request Data
 
 * `content-type`  application/json
 * `query string` เงื่อนไขที่ต้องการให้ update `?id=1`
 * `body` json object ตาม model ที่ถูกส่งมา `จะถูกแก้ไข`
 
-##### Response Data
+#### Response Data
 ข้อมูลที่ทำการอัพเดต หรือจำนวนถูกที่ถูกอัพเดต
 
 ### delete()
@@ -98,9 +98,9 @@ nav_order: 1
     *   request: เก็บ request อ่านเพิ่มเติมได้ที่ request
     *   response: เก็บ response ที่จะส่งออกไปอ่านเพิ่มเติมได้ที่ response
 
-##### Request Data
+#### Request Data
 * `content-type`  application/json
 * `query string`  เงื่อนไขที่ต้องการให้ลบ
 
-##### Response Data
+#### Response Data
 จำนวนแถวที่ถูกลบ
