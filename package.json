@@ -7,9 +7,6 @@
     "test": "standard && node example/index.js",
     "start": "node example/index.js"
   },
-  "publishConfig": {
-    "registry":"git://github.com/noob-studio/noob-engine"
-  },
   "author": "freeweed",
   "license": "MIT",
   "dependencies": {

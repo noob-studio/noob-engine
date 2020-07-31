@@ -3,6 +3,7 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
+nav_order: 1
 ---
 # Noob Engine
 framework ที่ทำให้คุณ `Code น้อยลง`เพื่อที่จะมีเวลา `คิดมากขึ้น`
