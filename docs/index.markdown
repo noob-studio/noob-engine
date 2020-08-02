@@ -22,12 +22,12 @@ framework ที่ทำให้คุณ `Code น้อยลง`เพื�
 #### Table Of Content
 * Concept (Comming Soon)
 * Example (Comming Soon)
-* [Engine](/engine)
-* [Router](/router)
-* [Model](/model)
-* [Controller](/controller)
-* [Helper](/helper)
-* [Config](/config)
+* [Engine](/engine | relative_url)
+* [Router](/router | relative_url)
+* [Model](/model | relative_url)
+* [Controller](/controller | relative_url)
+* [Helper](/helper | relative_url)
+* [Config](/config | relative_url)
 
 ## Install
 

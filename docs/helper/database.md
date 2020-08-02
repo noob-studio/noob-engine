@@ -34,8 +34,8 @@ Engine.set(
 ### Model Generator
 Noob Engine ใช้ [Sequelize Auto](https://github.com/sequelize/sequelize-auto) ในการสร้างโมเดลอัตโนมัติตามฐานข้อมูล หรือสร้างฐานข้อมูลอัตโนมัติตามโมเดล โดยมีตัวอย่างการใช้งานดังนี้
 เพิ่มเติม
-* [model](/model.html)
-* [config](/config.html#migration-setting-object)
+* [model](/model.html | relative_url)
+* [config](/config.html#migration-setting-object | relative_url)
 ```js
 database: {
     default: {
