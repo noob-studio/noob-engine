@@ -19,6 +19,16 @@ framework ที่ทำให้คุณ `Code น้อยลง`เพื�
 * `Customizable`
 สร้างขึ้นบน express และ sequelize ทำให้สามารถใช้ร่วมกับ middleware ต่างๆ ได้
 
+#### Table Of Content
+* Concept (Comming Soon)
+* Example (Comming Soon)
+* [Engine](/engine)
+* [Router](/router)
+* [Model](/model)
+* [Controller](/controller)
+* [Helper](/helper)
+* [Config](/config)
+
 ## Install
 
 เพื่อใช้งาน noob engine คุณต้องติดตั้ง node.js ในเครื่องก่อน
@@ -62,3 +72,18 @@ noob engine จะเพิ่มทำงานอัตโนมัติท�
 ```js
 Hello Noob
 ```
+
+ต่อไป [Engine](/Engine)
+
+#### Road Map
+
+* First Release `in progress`
+    * core feature `done`
+    * make document `80%`
+    * make unit test `todo`
+* Noob Editor - เครื่องมือที่จะช่วยให้การเขียน API ง่ายขึ้น และมี Quality มากขึ้น
+    * core feature `40%`
+* Second Release `todo`
+    * auto generate swagger `todo`
+    * auto generate unit test script `todo`
+    * noob cli `todo`

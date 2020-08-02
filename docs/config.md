@@ -45,7 +45,9 @@ config ทั้งหมดที่ใช้ Noob Engine
 | dbName.migration | Migration Object || |config สำหรับการ auto migration |
 
 ## Migration Setting Object
+
 ตั้งค่าสำหรับทำ Auto Mirgration บน Noob Engine
+
 | Name            | Type                    | Attribute   | Default     |Description                           |
 |-----------------|-------------------------|-------------|-------------|--------------------------------------|
 | migration.enable| boolean                 |             | false       |ถ้าเป็น true จะทำการ noob engine จะทำ generate model ขึ้นมาตามตารางในฐานข้อมาตามฐานข้อมูลของเราให้อัตโนมัติ |
@@ -54,7 +56,7 @@ config ทั้งหมดที่ใช้ Noob Engine
 |migration.additional|Sequelize Model Option |        |               | setting สำหรับ model ที่จะ generate ขึ้นมา อ่านเพิ่มเติมได้ ที่นี่ |
 
 ## Authen Setting Object
-ตั้งค่าสำหรับการทำ Authen โดยใช้งานร่วมกับ Passport.js
+ตั้งค่าสำหรับการทำ Authen โดยใช้งานร่วมกับ [Passport.js](http://www.passportjs.org/)
 
 | Name            | Type                    | Attribute   | Default     |Description                           |
 |-----------------|-------------------------|-------------|-------------|--------------------------------------|
