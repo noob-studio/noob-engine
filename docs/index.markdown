@@ -22,12 +22,12 @@ framework ที่ทำให้คุณ `Code น้อยลง`เพื�
 #### Table Of Content
 * Concept (Comming Soon)
 * Example (Comming Soon)
-* [Engine](/engine | relative_url)
-* [Router](/router | relative_url)
-* [Model](/model | relative_url)
-* [Controller](/controller | relative_url)
-* [Helper](/helper | relative_url)
-* [Config](/config | relative_url)
+* [Engine](https://noob-studio.github.io/noob-engine/engine)
+* [Router](https://noob-studio.github.io/noob-engine/router)
+* [Model](https://noob-studio.github.io/noob-engine/model)
+* [Controller](https://noob-studio.github.io/noob-engine/controller)
+* [Helper](https://noob-studio.github.io/noob-engine/helper)
+* [Config](https://noob-studio.github.io/noob-engine/config)
 
 ## Install
 
@@ -73,7 +73,7 @@ noob engine จะเพิ่มทำงานอัตโนมัติท�
 Hello Noob
 ```
 
-ต่อไป [Engine](/Engine)
+ต่อไป [Engine](https://noob-studio.github.io/noob-engine/Engine)
 
 #### Road Map
 
