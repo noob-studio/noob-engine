@@ -73,7 +73,7 @@ noob engine จะเพิ่มทำงานอัตโนมัติท�
 Hello Noob
 ```
 
-ต่อไป [Engine](https://noob-studio.github.io/noob-engine/Engine)
+ต่อไป [engine](https://noob-studio.github.io/noob-engine/engine)
 
 #### Road Map
 
