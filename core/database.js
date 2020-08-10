@@ -49,17 +49,21 @@ class Database {
 
   async select(select, table, page = 1, condition = null, groupBy = null){
     let sql = `SELECT ${select} FROM ${table} `
+    let total = 0
     if(condition){
       sql += `WHERE  ${condition} `
     }
     if(groupBy){
       sql += `GROUP BY ${groupBy} `
     }
-    let numPerPage = this.config.limit || 10
-    let skip = (page - 1 ) * numPerPage
-    let limit = skip + ',' + numPerPage
-    let total = await this.conn.query(sql, { type: QueryTypes.SELECT })
-    sql += `LIMIT ${limit}`
+    if(page != -1){
+      let numPerPage = this.config.limit || 10
+      let skip = (page - 1 ) * numPerPage
+      let limit = skip + ',' + numPerPage
+      total = await this.conn.query(sql, { type: QueryTypes.SELECT })
+      sql += `LIMIT ${limit}`
+    }
+
     let docs = await this.conn.query(sql , { type: QueryTypes.SELECT })
     return { docs, page, total }
   }

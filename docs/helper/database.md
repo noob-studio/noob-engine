@@ -76,6 +76,19 @@ database: {
 
 | Name        | Type                   | Attribute | Description                                                                  |
 |-------------|------------------------|-----------|------------------------------------------------------------------------------|
+| name       | string                 | require   | ชื่อโมเดลที่ต้องการเรียกใช้งาน |
+
+```js
+//noob controller
+    let MyModel = this.db.loadModel('blog') 
+    let data = MyModel.findAll()
+    ...
+```
+
+#### Parameter
+
+| Name        | Type                   | Attribute | Description                                                                  |
+|-------------|------------------------|-----------|------------------------------------------------------------------------------|
 | name       | string                 | require   | ชื่อโมเดลที่ต้องการดาวโหลดเข้ามา        |
 
 ### isAlive()

@@ -12,21 +12,6 @@ nav_order: 2
 
 ใช้สำหรับดึง primary key ของ model คืนข้อมูลเป็น string
 
-### loadModel()
-
-ใช้สำหรับเรียก model จากไฟล์เข้ามาใช้งานใน controller
-
-#### Parameter
-
-| Name        | Type                   | Attribute | Description                                                                  |
-|-------------|------------------------|-----------|------------------------------------------------------------------------------|
-| name       | string                 | require   | ชื่อโมเดลที่ต้องการเรียกใช้งาน |
-
-```js
-    let MyModel = this.loadModel('blog') 
-    let data = MyModel.findAll()
-    ...
-```
 
 ### valiate()
 
