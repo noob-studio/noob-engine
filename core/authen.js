@@ -1,6 +1,7 @@
 const passport = require('passport')
 const ExtractJwt = require('passport-jwt').ExtractJwt
 const JwtStrategy = require('passport-jwt').Strategy
+const RefreshTokenStrategy = require('passport-refresh-token').Strategy
 
 class Authen {
   constructor (config, output, db) {
@@ -14,7 +15,10 @@ class Authen {
       secretOrKey: this.secret
     }
     this.authStrategy = new JwtStrategy(this.jwtOptions, this.strategy.bind(this))
+    this.refreshStrategy = new RefreshTokenStrategy(this.refreshStrategy.bind(this))
+    
     this.authMiddleWare = this.passport.authenticate('jwt', { session: false })
+    this.refreshTokenMiddleWare = this.passport.authenticate('refresh_token', { session: false })
   }
 
   login (req, res) {
@@ -22,7 +26,14 @@ class Authen {
   }
 
   strategy(payload, done) {
-    console.log("parent strategy")
+    return done(null, true)
+  }
+
+  refreshToken (req, res){
+    this.output.success(res, '<h1>there are no refresh token function implement</h1>')
+  }
+
+  refreshStrategy(token, done){
     return done(null, true)
   }
 

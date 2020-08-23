@@ -47,7 +47,7 @@ class Database {
     })
   }
 
-  async select(select, table, page = 1, condition = null, groupBy = null){
+  async select(select, table, page = 1, condition = null, groupBy = null, orderBy = null){
     let sql = `SELECT ${select} FROM ${table} `
     let total = 0
     if(condition){
@@ -56,11 +56,15 @@ class Database {
     if(groupBy){
       sql += `GROUP BY ${groupBy} `
     }
+    if(orderBy){
+      sql += `ORDER BY ${orderBy} `
+    }
     if(page != -1){
       let numPerPage = this.config.limit || 10
       let skip = (page - 1 ) * numPerPage
       let limit = skip + ',' + numPerPage
-      total = await this.conn.query(sql, { type: QueryTypes.SELECT })
+      let _total = await this.conn.query(`SELECT COUNT(*) FROM (${sql}) as total `, { type: QueryTypes.SELECT })
+      total = _total[0]['COUNT(*)']
       sql += `LIMIT ${limit}`
     }
 

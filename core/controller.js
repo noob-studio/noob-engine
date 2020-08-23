@@ -11,14 +11,17 @@ class NoobController {
     if (this.model) {
       try {
         let data = []
+        let group = []
         const key = await this.getPrimary()
-        let group = [key]
         if(req.query.groupBy){
           group = req.query.groupBy.split(',')
           delete req.query.groupBy
         }
-        if (this.isEmpty(req.query)) {
-          data = await this.model.findAll({group})
+        if(key.length === 0){
+          this.model.removeAttribute('id')
+        }
+        if (this.isEmpty(req.query) && group.length == 0) {
+          data = await this.model.findAll()
         } else if (req.query[key]) {
           data = await this.model.findOne({where: req.query})
         } else {
@@ -35,10 +38,14 @@ class NoobController {
               page: pages,
               total
             }
-          }else{
+          }else if(group.length > 0){
             data = await this.model.findAll({
               where: req.query,
               group
+            })
+          }else{
+            data = await this.model.findAll({
+              where: req.query
             })
           }
         }
@@ -49,6 +56,7 @@ class NoobController {
           this.output.success(res, data)
         }
       } catch (err) {
+        console.log('err===>' + err)
         this.output.error(res, err)
       }
     } else {

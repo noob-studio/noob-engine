@@ -15,7 +15,8 @@ class NoobEngine {
       baseUrl: '',
       auth: {
         secret: 'my secret code',
-        path: '/login'
+        path: '/login',
+        refreshToken: '/refresh_token'
       },
       port: 3000
     }
@@ -101,11 +102,16 @@ class NoobEngine {
       }
       this.auth = new this.config.auth.controller(this.config.auth, this.output, this.db)
       passport.use(this.auth.authStrategy)
+      passport.use(this.auth.refreshStrategy)
       passport.serializeUser(this.auth.serialize)
       passport.deserializeUser(this.auth.deserialize)
 
+      // set refresh token route
+      // this.app.get(this.config.auth.refreshToken, this.auth.refreshTokenMiddleWare, this.auth.refreshToken.bind(this.auth))
+      // set login route
       this.app.post(this.config.auth.path, this.auth.login.bind(this.auth))
       this.app.use(this.auth.authMiddleWare)
+
     }
 
     // set route

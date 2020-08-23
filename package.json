@@ -1,6 +1,6 @@
 {
   "name": "noob-engine",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "mcw node.js framework for progressive web application",
   "main": "server.js",
   "scripts": {
@@ -19,6 +19,7 @@
     "mysql2": "^2.1.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "passport-refresh-token": "0.0.1",
     "pg": "^6.4.2",
     "pg-hstore": "^2.3.3",
     "request": "^2.88.2",
