@@ -53,6 +53,13 @@ class NoobEngine {
         ctrl = new NoobController(model, this.output, this.db)
       }
 
+      if(route.needAuth){
+        if(!this.config.auth.controller){
+          throw Error('you need to setting auth to use authen function')
+        }else{
+          router.use(this.auth.authMiddleWare)
+        }
+      }
       router.route(`${this.config.baseUrl}${route.path}`)
         .get(ctrl.get.bind(ctrl))
         .post(ctrl.post.bind(ctrl))
@@ -102,7 +109,7 @@ class NoobEngine {
       }
       this.auth = new this.config.auth.controller(this.config.auth, this.output, this.db)
       passport.use(this.auth.authStrategy)
-      passport.use(this.auth.refreshStrategy)
+      // passport.use(this.auth.refreshStrategy)
       passport.serializeUser(this.auth.serialize)
       passport.deserializeUser(this.auth.deserialize)
 
@@ -110,7 +117,7 @@ class NoobEngine {
       // this.app.get(this.config.auth.refreshToken, this.auth.refreshTokenMiddleWare, this.auth.refreshToken.bind(this.auth))
       // set login route
       this.app.post(this.config.auth.path, this.auth.login.bind(this.auth))
-      this.app.use(this.auth.authMiddleWare)
+      // this.app.use(this.auth.authMiddleWare)
 
     }
 
@@ -143,8 +150,9 @@ class NoobEngine {
     if (app) {
       this.app = app
     }
-    this.use(bodyParser.urlencoded({ extended: false }))
-    this.use(bodyParser.json())
+    // TODO add parse limit config
+    this.use(bodyParser.urlencoded({limit: "5mb", extended: true}))
+    this.use(bodyParser.json({limit: "5mb"}))
     await this.setting()
     if(cb){
       this.app.listen(this.config.port, () => {

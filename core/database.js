@@ -20,6 +20,7 @@ class Database {
         port: this.config[this.dbName].port || 3306,
         dialect: this.config[this.dbName].engine,
         pool: this.config[this.dbName.pool],
+        timezone: this.config[this.dbName.timezone] || '+07:00',
         define: this.config[this.dbName].define || {
           freezeTableName: true
         }

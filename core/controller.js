@@ -56,7 +56,6 @@ class NoobController {
           this.output.success(res, data)
         }
       } catch (err) {
-        console.log('err===>' + err)
         this.output.error(res, err)
       }
     } else {
