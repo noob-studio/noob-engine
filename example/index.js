@@ -17,5 +17,5 @@ Engine.set({
 })
 
 Engine.start((app) => {
-  console.log(JSON.stringify(app.config))
+  // console.log(JSON.stringify(app.config))
 })

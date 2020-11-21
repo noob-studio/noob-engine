@@ -19,8 +19,16 @@ class Database {
         host: this.config[this.dbName].hostname,
         port: this.config[this.dbName].port || 3306,
         dialect: this.config[this.dbName].engine,
-        pool: this.config[this.dbName.pool],
-        timezone: this.config[this.dbName.timezone] || '+07:00',
+        pool: this.config[this.dbName].pool,
+        timezone: this.config[this.dbName].timezone || '+07:00',
+        dialectOptions: {
+          typeCast: function (field, next) { // for reading from database
+            if (field.type === 'DATETIME') {
+              return field.string()
+            }
+            return next()
+          }
+        },
         define: this.config[this.dbName].define || {
           freezeTableName: true
         }
