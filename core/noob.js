@@ -71,8 +71,8 @@ class NoobEngine {
           router.route(`${this.config.baseUrl}${route.path}${route.children[x].path}`)[route.children[x].method.toLowerCase()](ctrl[route.children[x].function].bind(ctrl))
         }
       }
-      this.app.use('/', router)
     }
+    this.app.use('/', router)
   }
 
   async setting () {
