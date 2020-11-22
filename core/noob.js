@@ -28,6 +28,10 @@ class NoobEngine {
   }
 
   async setRoute () {
+    if(this.config.auth.controller){
+      console.log('here')
+      router.use(this.auth.authMiddleWare)
+    }
     for (let i = 0; i < this.config.route.length; i++) {
       const route = this.config.route[i]
       let ctrl = null
@@ -53,13 +57,6 @@ class NoobEngine {
         ctrl = new NoobController(model, this.output, this.db)
       }
 
-      if(route.needAuth){
-        if(!this.config.auth.controller){
-          throw Error('you need to setting auth to use authen function')
-        }else{
-          router.use(this.auth.authMiddleWare)
-        }
-      }
       router.route(`${this.config.baseUrl}${route.path}`)
         .get(ctrl.get.bind(ctrl))
         .post(ctrl.post.bind(ctrl))
