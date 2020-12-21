@@ -29,7 +29,6 @@ class NoobEngine {
 
   async setRoute () {
     if(this.config.auth.controller){
-      console.log('here')
       router.use(this.auth.authMiddleWare)
     }
     for (let i = 0; i < this.config.route.length; i++) {
